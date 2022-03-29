@@ -10,9 +10,9 @@ const PORT = process.env.PORT || 5000;
 const router = require('./router');
 
 const app = express();
-app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(express.static(path.resolve(__dirname, "./build")));
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '/build', 'index.html'));
   });
 const server = http.createServer(app);
 
