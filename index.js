@@ -12,8 +12,10 @@ const router = require('./router');
 const app = express();
 
 corsOptions={
-    cors: true,
-    origins:["*"]
+    // cors: true,
+    // origins:["*"]
+    origin: "https://app852.herokuapp.com/",
+    methods: ["GET", "POST"]
 }
 app.use(cors());
 
