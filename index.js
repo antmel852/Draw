@@ -10,15 +10,13 @@ const PORT = process.env.PORT || 5000;
 const router = require('./router');
 
 const app = express();
-app.set('port', (PORT));
 
 corsOptions={
     // cors: true,
     // origins:["*"]
-    origin: "https://app852.herokuapp.com/",
+    origins: ["*"],
     methods: ["GET", "POST"]
 }
-app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, "build")));
 app.get('/*', (req, res) => {
@@ -29,6 +27,7 @@ const server = http.createServer(app);
 
 const io = socketio(server, corsOptions);
 
+app.use(cors());
 
 
 // New connection
