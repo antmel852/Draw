@@ -18,6 +18,7 @@ corsOptions={
     methods: ["GET", "POST"]
 }
 app.use(cors());
+app.set('port', (PORT));
 
 app.use(express.static(path.resolve(__dirname, "build")));
 app.get('/*', (req, res) => {
