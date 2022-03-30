@@ -17,10 +17,10 @@ corsOptions={
 }
 app.use(cors());
 
-// app.use(express.static(path.resolve(__dirname, "./build")));
-// app.get('/*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '/build', 'index.html'));
-//   });
+app.use(express.static(path.resolve(__dirname, "./build")));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/build', 'index.html'));
+  });
 const server = http.createServer(app);
 
 
