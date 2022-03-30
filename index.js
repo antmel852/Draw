@@ -11,11 +11,11 @@ const router = require('./router');
 
 const app = express();
 
-corsOptions={
-    cors: true,
-    origins:["*"]
-}
-app.use(cors());
+// corsOptions={
+//     cors: true,
+//     origins:["*"]
+// }
+// app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, "build")));
 app.get('/*', (req, res) => {
