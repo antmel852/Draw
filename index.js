@@ -11,19 +11,19 @@ const router = require('./router');
 
 const app = express();
 
-
-
-// app.use(express.static(path.resolve(__dirname, "build")));
-// app.get('/*', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-//   });
-const server = http.createServer(app);
 corsOptions={
-    cors: true,
-    origins:["*"]
-    // origins: ["*"],
-    // methods: ["GET", "POST"]
+    // cors: true,
+    // origins:["*"]
+    origins: ["*"],
+    methods: ["GET", "POST"]
 }
+
+app.use(express.static(path.resolve(__dirname, "build")));
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+const server = http.createServer(app);
+
 
 const io = socketio(server, corsOptions);
 
